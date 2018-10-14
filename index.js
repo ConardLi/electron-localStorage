@@ -1,5 +1,7 @@
+'use strict';
+
 /**
- * 读取本地配置工具类
+ * 读取本地配置
  */
 const fs = require('fs')
 const path = require('path')

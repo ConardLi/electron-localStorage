@@ -4,8 +4,7 @@
   "description": "在eletron主线程也能使用的localStorage",
   "main": "index.js",
   "scripts": {
-    "lint": "echo \"代码检测中...\" && eslint ./src *.js --cache",
-    "test": "mocha --reporter spec --bail --check-leaks test/"
+    "lint": "echo \"代码检测中...\" && eslint ./src *.js --cache"
   },
   "repository": {
     "type": "git",
@@ -24,9 +23,6 @@
     "eslint-plugin-markdown": "1.0.0-beta.6",
     "eslint-plugin-node": "5.2.1",
     "eslint-plugin-promise": "3.6.0",
-    "eslint-plugin-standard": "3.0.1",
-    "istanbul": "0.4.5",
-    "mocha": "2.5.3",
-    "supertest": "1.1.0"
+    "eslint-plugin-standard": "3.0.1"
   }
 }
