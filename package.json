@@ -1,6 +1,6 @@
 {
   "name": "electron-localstorage",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "在eletron主线程也能使用的localStorage",
   "main": "index.js",
   "scripts": {
