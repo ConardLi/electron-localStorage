@@ -1,0 +1,2 @@
+# electron-localStorage
+在eletron主线程也能使用的localStorage
