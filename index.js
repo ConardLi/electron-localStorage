@@ -1,9 +1,9 @@
 /**
  * 读取本地配置工具类
  */
-const fs = require("fs");
-const path = require('path');
-const configUrl = path.join(__dirname, './localConfig.json');
+const fs = require('fs')
+const path = require('path')
+const configUrl = path.join(__dirname, './localConfig.json')
 /**
  * 判断配置文件是否存在
  */
@@ -38,7 +38,7 @@ function initConfig() {
  */
 function readConfig() {
   try {
-    const result = fs.readFileSync(configUrl);;
+    const result = fs.readFileSync(configUrl);
     return result;
   } catch (error) {
     return false;
@@ -71,7 +71,7 @@ const localConfig = {
   setItem: (key, value) => {
     let success = isExit();
     if (success) {
-      const config = { ...localConfig.config };
+      const config = Object.assign({}, localConfig.config);
       config[key] = value;
       const suc = writeConfig(config);
       if (suc) {
@@ -91,7 +91,7 @@ const localConfig = {
   removeItem: (key) => {
     const value = localConfig.getItem(key);
     if (value) {
-      const config = { ...localConfig.config };
+      const config = Object.assign({}, localConfig.config);
       delete config[key];
       const suc = writeConfig(config);
       if (suc) {
@@ -113,4 +113,5 @@ const localConfig = {
     return false;
   }
 }
+
 module.exports = localConfig;
