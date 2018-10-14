@@ -11,11 +11,11 @@ electron主进程中是不能获取到浏览器的window对象的，所以我们
 # 1.安装
 
 ```
-npm install electron-localStorage
+npm install electron-localstorage
 ```
 # 2.引用：
 ```
-const storage = require('electron-localStorage');
+const storage = require('electron-localstorage');
 ```
 
 # 3.使用
