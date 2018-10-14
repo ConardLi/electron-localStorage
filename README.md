@@ -15,7 +15,7 @@ npm install electron-localStorage
 ```
 # 2.引用：
 ```
-const storage = require('./localStorage');
+const storage = require('electron-localStorage');
 ```
 
 # 3.使用
