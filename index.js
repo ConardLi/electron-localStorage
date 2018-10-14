@@ -5,7 +5,6 @@
  */
 const fs = require('fs')
 const path = require('path')
-const configUrl = path.join(__dirname, './localConfig.json')
 /**
  * 判断配置文件是否存在
  */
@@ -28,7 +27,7 @@ function initConfig() {
     }
     const defalutConfig = {};
     const content = JSON.stringify(defalutConfig);
-    fs.writeFileSync(configUrl, content);
+    fs.writeFileSync(localConfig.configUrl, content);
     localConfig.config = defalutConfig;
     return true;
   } catch (e) {
@@ -40,7 +39,7 @@ function initConfig() {
  */
 function readConfig() {
   try {
-    const result = fs.readFileSync(configUrl);
+    const result = fs.readFileSync(localConfig.configUrl);
     return result;
   } catch (error) {
     return false;
@@ -52,7 +51,7 @@ function readConfig() {
 function writeConfig(value) {
   try {
     const content = JSON.stringify(value);
-    fs.writeFileSync(configUrl, content);
+    fs.writeFileSync(localConfig.configUrl, content);
     return true;
   } catch (e) {
     return false;
@@ -62,6 +61,13 @@ function writeConfig(value) {
 
 const localConfig = {
   config: null,
+  configUrl: path.join(__dirname, './localConfig.json'),
+  setStoragePath: (path) => {
+    localConfig.configUrl = path;
+  },
+  getStoragePath: () => {
+    return localConfig.configUrl;
+  },
   getItem: (key) => {
     const success = isExit();
     if (success) {
