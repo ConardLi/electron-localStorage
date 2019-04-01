@@ -5,16 +5,7 @@
  */
 const fs = require('fs')
 const path = require('path')
-/**
- * 判断配置文件是否存在
- */
-function isExit() {
-  let success = true;
-  if (!(localConfig.config && typeof localConfig.config === 'object')) {
-    success = initConfig();
-  }
-  return success;
-}
+
 /**
  * 初始化config
  */
@@ -69,7 +60,7 @@ const localConfig = {
     return localConfig.configUrl;
   },
   getItem: (key) => {
-    const success = isExit();
+    const success = initConfig();
     if (success) {
       const result = localConfig.config[key];
       return result ? result : '';
@@ -77,7 +68,7 @@ const localConfig = {
     return null;
   },
   setItem: (key, value) => {
-    let success = isExit();
+    let success = initConfig();
     if (success) {
       const config = Object.assign({}, localConfig.config);
       config[key] = value;
@@ -90,7 +81,7 @@ const localConfig = {
     return false;
   },
   getAll: () => {
-    let success = isExit();
+    let success = initConfig();
     if (success) {
       return localConfig.config;
     }
@@ -110,7 +101,7 @@ const localConfig = {
     return false;
   },
   clear: () => {
-    let success = isExit();
+    let success = initConfig();
     if (success) {
       const suc = writeConfig({});
       if (suc) {
