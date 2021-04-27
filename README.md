@@ -49,6 +49,8 @@ storage.getAll();
 ```
 storage.setStoragePath(path.join(__dirname,'test.json'));
 ```
+> 注意：需要保证该文件至少拥有一个最基础的json结构`{}`,否则会无法设置读取缓存
+
 获取当前数据存储路径
 ```
 storage.getStoragePath();
